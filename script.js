@@ -16,6 +16,37 @@ const stories = [
       "M：“我好饿——”",
       "L：“你的外卖小弟正在路上”"
     ]
+  },
+  {
+    id: "owl-plush",
+    index: "02",
+    title: "关于猫头鹰玩偶（中英）",
+    kicker: "Parallel 02",
+    tag: "PHOTO TRIGGER 02",
+    quote: "12.25 搓搓小手 和你一起过冬",
+    image: "assets/images/owl-bear-cover.png",
+    imageAlt: "两个人戴着毛绒帽子的故事封面",
+    detailImages: [
+      {
+        src: "assets/images/owl-cookie.png",
+        alt: "圣诞姜饼饼干"
+      },
+      {
+        src: "assets/images/owl-christmas.png",
+        alt: "圣诞树旁的合照"
+      },
+      {
+        src: "assets/images/owl-snow.png",
+        alt: "雪地里的合照"
+      }
+    ],
+    media: "assets/media/owl-plush.mp4",
+    mediaType: "video/mp4",
+    track: "关于猫头鹰玩偶",
+    short: "",
+    body: [
+      "有猫头鹰在，哥哥就不孤单了"
+    ]
   }
 ];
 
@@ -31,6 +62,7 @@ const galleryPrev = document.querySelector("#galleryPrev");
 const galleryNext = document.querySelector("#galleryNext");
 const galleryCounter = document.querySelector("#galleryCounter");
 const dialog = document.querySelector("#storyDialog");
+const dialogPhotos = document.querySelector("#dialogPhotos");
 const dialogImage = document.querySelector("#dialogImage");
 const dialogTag = document.querySelector("#dialogTag");
 const dialogKicker = document.querySelector("#dialogKicker");
@@ -118,8 +150,25 @@ function findStory(id) {
 }
 
 function fillStory(story) {
-  dialogImage.src = story.image;
-  dialogImage.alt = story.imageAlt;
+  const photos =
+    story.detailImages && story.detailImages.length
+      ? story.detailImages
+      : [{ src: story.image, alt: story.imageAlt }];
+
+  dialogPhotos.replaceChildren();
+  dialogPhotos.classList.toggle("is-gallery", photos.length > 1);
+  photos.forEach((photo, photoIndex) => {
+    const img = document.createElement("img");
+    img.src = photo.src;
+    img.alt = photo.alt || story.imageAlt;
+
+    if (photoIndex === 0) {
+      img.id = "dialogImage";
+    }
+
+    dialogPhotos.appendChild(img);
+  });
+
   dialogTag.textContent = story.tag;
   dialogKicker.textContent = story.kicker;
   dialogTitle.textContent = story.title;

@@ -721,13 +721,30 @@ h2 {
   background-size: 34px 34px, auto;
 }
 
-.dialog-photo img {
+.dialog-photo-stack {
+  display: grid;
+  gap: 14px;
+}
+
+.dialog-photo-stack img {
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
   border: 3px solid var(--line);
   border-radius: var(--radius);
   box-shadow: var(--pixel-shadow);
+}
+
+.dialog-photo-stack.is-gallery img {
+  aspect-ratio: 4 / 3;
+}
+
+.dialog-photo-stack.is-gallery img:nth-child(2) {
+  aspect-ratio: 4 / 5;
+}
+
+.dialog-photo-stack.is-gallery img:nth-child(3) {
+  aspect-ratio: 16 / 10;
 }
 
 .photo-tag {
@@ -936,7 +953,10 @@ h2 {
     padding: 16px;
   }
 
-  .dialog-photo img {
+  .dialog-photo-stack img,
+  .dialog-photo-stack.is-gallery img,
+  .dialog-photo-stack.is-gallery img:nth-child(2),
+  .dialog-photo-stack.is-gallery img:nth-child(3) {
     aspect-ratio: 16 / 10;
   }
 
@@ -947,6 +967,29 @@ h2 {
   .dialog-story h2 {
     padding-right: 46px;
     font-size: 1.62rem;
+  }
+}
+
+@media (min-width: 560px) and (max-width: 720px) {
+  .dialog-shell {
+    grid-template-columns: minmax(210px, 0.84fr) minmax(260px, 1fr);
+  }
+
+  .dialog-photo {
+    position: sticky;
+    top: 0;
+    padding: 14px;
+  }
+
+  .dialog-story {
+    padding: 24px 18px 20px;
+  }
+
+  .dialog-photo-stack img,
+  .dialog-photo-stack.is-gallery img,
+  .dialog-photo-stack.is-gallery img:nth-child(2),
+  .dialog-photo-stack.is-gallery img:nth-child(3) {
+    aspect-ratio: 4 / 5;
   }
 }
 
