@@ -1,0 +1,6 @@
+publish-site/
+parallel-world-site.zip
+preview-server.*.log
+.codex-tools/
+.agents/
+assets/media/*.mov

@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>枳在有你们的平行世界</title>
+    <meta
+      name="description"
+      content="枳在有你们的平行世界，一个照片触发故事的 AI Photo Gallery + Story Archive。"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="pixel-sky" aria-hidden="true"></div>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="枳在有你们的平行世界">
+        <span class="brand-mark" aria-hidden="true">
+          <span class="mark-letter mark-l">L</span>
+          <span class="mark-letter mark-m">M</span>
+        </span>
+        <span>World Language</span>
+      </a>
+      <nav class="nav-links" aria-label="主导航">
+        <a href="#gallery">Gallery</a>
+        <a href="#top">天天开心</a>
+      </nav>
+    </header>
+
+    <main id="top" class="page-shell">
+      <section class="exhibit-stage" aria-labelledby="site-title">
+        <div class="stage-copy">
+          <h1 id="site-title">
+            <span class="title-line">枳在有你们</span>
+            <span class="title-line title-particle">の</span>
+            <span class="title-line">平行世界</span>
+          </h1>
+          <p class="lead">
+            把一张照片放进蓝粉色的小宇宙里，轻轻一点，就会听见它背后那段被收藏起来的故事。
+          </p>
+        </div>
+
+        <div class="desk-scene" aria-label="平行世界展览桌">
+          <div class="lamp" aria-hidden="true">
+            <span class="lamp-shade"></span>
+            <span class="lamp-stem"></span>
+            <span class="lamp-base"></span>
+          </div>
+
+          <div class="counter" aria-label="故事计时器">
+            <span class="counter-label">PARALLEL</span>
+            <span class="counter-time">271199</span>
+          </div>
+
+          <div class="featured-frame" aria-label="Late Midnight 视频预览">
+            <video
+              class="preview-video"
+              autoplay
+              loop
+              muted
+              playsinline
+              preload="metadata"
+              poster="assets/images/about-food.png"
+              aria-label="王橹杰和穆祉丞的广播剧视频预览"
+            >
+              <source src="assets/media/hero-loop.mp4" type="video/mp4">
+            </video>
+            <span class="frame-caption">
+              <span>Late Midnight</span>
+              <small>凌晨的心事 全是关于你</small>
+            </span>
+          </div>
+
+          <div class="sticky-note" aria-hidden="true">
+            <span>Welcome</span>
+            <span>to LM world</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="gallery-section" aria-labelledby="gallery-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Theme Album</p>
+            <h2 id="gallery-title">点点滴滴</h2>
+          </div>
+          <span class="gallery-counter" id="galleryCounter" aria-live="polite">01 / 02</span>
+        </div>
+
+        <div class="gallery-carousel" aria-label="主题相册轮播">
+          <button
+            class="carousel-button carousel-prev"
+            type="button"
+            id="galleryPrev"
+            title="上一张"
+            aria-label="上一张"
+          >
+            ‹
+          </button>
+          <div class="gallery-viewport">
+            <div class="gallery-grid" id="galleryGrid"></div>
+          </div>
+          <button
+            class="carousel-button carousel-next"
+            type="button"
+            id="galleryNext"
+            title="下一张"
+            aria-label="下一张"
+          >
+            ›
+          </button>
+        </div>
+      </section>
+
+    </main>
+
+    <dialog class="story-dialog" id="storyDialog" aria-labelledby="dialogTitle">
+      <div class="dialog-shell">
+        <button class="close-button" type="button" data-close-dialog title="关闭" aria-label="关闭">×</button>
+
+        <div class="dialog-photo">
+          <img id="dialogImage" src="assets/images/about-food.png" alt="">
+          <span id="dialogTag" class="photo-tag"></span>
+        </div>
+
+        <article class="dialog-story">
+          <p id="dialogKicker" class="eyebrow"></p>
+          <h2 id="dialogTitle"></h2>
+          <p id="dialogQuote" class="quote"></p>
+          <div id="dialogBody" class="story-body"></div>
+
+          <div class="radio-card" aria-label="广播剧片段">
+            <div class="radio-heading">
+              <span>Radio Drama</span>
+              <strong id="dialogTrack"></strong>
+            </div>
+            <video
+              id="dialogMedia"
+              class="media-player"
+              controls
+              playsinline
+              preload="metadata"
+              poster="assets/images/about-food.png"
+            >
+              <source src="assets/media/about-food.mp4" type="video/mp4">
+              当前浏览器无法播放这个片段。
+            </video>
+          </div>
+        </article>
+      </div>
+    </dialog>
+
+    <footer class="site-footer">
+      <span>Parallel archive for 王橹杰 × 穆祉丞.</span>
+      <span>平行世界故事为同人虚构收藏，情节不指向现实。</span>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
