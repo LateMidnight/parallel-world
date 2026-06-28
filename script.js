@@ -88,10 +88,20 @@ const emptySlots = [
   }
 ];
 
+const librarySlots = [
+  { index: "01", title: "等待更新中" },
+  { index: "02", title: "等待更新中" },
+  { index: "03", title: "等待更新中" }
+];
+
 const galleryGrid = document.querySelector("#galleryGrid");
 const galleryPrev = document.querySelector("#galleryPrev");
 const galleryNext = document.querySelector("#galleryNext");
 const galleryCounter = document.querySelector("#galleryCounter");
+const libraryGrid = document.querySelector("#libraryGrid");
+const libraryPrev = document.querySelector("#libraryPrev");
+const libraryNext = document.querySelector("#libraryNext");
+const libraryCounter = document.querySelector("#libraryCounter");
 const dialog = document.querySelector("#storyDialog");
 const dialogPhotos = document.querySelector("#dialogPhotos");
 const dialogImage = document.querySelector("#dialogImage");
@@ -103,6 +113,7 @@ const dialogBody = document.querySelector("#dialogBody");
 const dialogTrack = document.querySelector("#dialogTrack");
 const dialogMedia = document.querySelector("#dialogMedia");
 let galleryIndex = 0;
+let libraryIndex = 0;
 
 function renderGallery() {
   const storyCards = stories
@@ -174,6 +185,53 @@ function moveGallery(direction) {
 
   galleryIndex = (galleryIndex + direction + total) % total;
   updateGalleryCarousel();
+}
+
+function renderLibrary() {
+  libraryGrid.innerHTML = librarySlots
+    .map(
+      (slot) => `
+        <div class="gallery-slide">
+          <div class="empty-card library-card" aria-label="学习档案 ${slot.index}：${slot.title}">
+            <div>
+              <span aria-hidden="true">${slot.index}</span>
+              <strong>${slot.title}</strong>
+            </div>
+          </div>
+        </div>
+      `
+    )
+    .join("");
+
+  updateLibraryCarousel();
+}
+
+function updateLibraryCarousel() {
+  const total = libraryGrid.querySelectorAll(".gallery-slide").length;
+
+  if (!total) {
+    return;
+  }
+
+  libraryIndex = (libraryIndex + total) % total;
+  libraryGrid.style.transform = `translateX(-${libraryIndex * 100}%)`;
+
+  if (libraryCounter) {
+    libraryCounter.textContent = `${String(libraryIndex + 1).padStart(2, "0")} / ${String(
+      total
+    ).padStart(2, "0")}`;
+  }
+}
+
+function moveLibrary(direction) {
+  const total = libraryGrid.querySelectorAll(".gallery-slide").length;
+
+  if (!total) {
+    return;
+  }
+
+  libraryIndex = (libraryIndex + direction + total) % total;
+  updateLibraryCarousel();
 }
 
 function findStory(id) {
@@ -252,6 +310,8 @@ document.addEventListener("click", (event) => {
 
 galleryPrev?.addEventListener("click", () => moveGallery(-1));
 galleryNext?.addEventListener("click", () => moveGallery(1));
+libraryPrev?.addEventListener("click", () => moveLibrary(-1));
+libraryNext?.addEventListener("click", () => moveLibrary(1));
 
 dialog.addEventListener("click", (event) => {
   const rect = dialog.getBoundingClientRect();
@@ -277,6 +337,7 @@ document.addEventListener("keydown", (event) => {
 });
 
 renderGallery();
+renderLibrary();
 
 if (window.location.hash === "#about-food" || window.location.hash === "#story-about-food") {
   openStory("about-food");

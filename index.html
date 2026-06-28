@@ -22,7 +22,7 @@
       </a>
       <nav class="nav-links" aria-label="主导航">
         <a href="#gallery">Gallery</a>
-        <a href="#top">天天开心</a>
+        <a href="#library">LM图书馆</a>
       </nav>
     </header>
 
@@ -111,6 +111,40 @@
         </div>
       </section>
 
+      <section id="library" class="gallery-section library-section" aria-labelledby="library-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Study Archive</p>
+            <h2 id="library-title">LM图书馆</h2>
+          </div>
+          <span class="gallery-counter" id="libraryCounter" aria-live="polite">01 / 03</span>
+        </div>
+
+        <div class="gallery-carousel" aria-label="LM图书馆学习内容轮播">
+          <button
+            class="carousel-button carousel-prev"
+            type="button"
+            id="libraryPrev"
+            title="上一页"
+            aria-label="上一页"
+          >
+            &#8249;
+          </button>
+          <div class="gallery-viewport">
+            <div class="gallery-grid" id="libraryGrid"></div>
+          </div>
+          <button
+            class="carousel-button carousel-next"
+            type="button"
+            id="libraryNext"
+            title="下一页"
+            aria-label="下一页"
+          >
+            &#8250;
+          </button>
+        </div>
+      </section>
+
     </main>
 
     <dialog class="story-dialog" id="storyDialog" aria-labelledby="dialogTitle">
@@ -156,6 +190,6 @@
       <span>平行世界故事为同人虚构收藏，情节不指向现实。</span>
     </footer>
 
-    <script src="script.js?v=20260627-buttons-bilingual"></script>
+    <script src="script.js?v=20260627-library"></script>
   </body>
 </html>

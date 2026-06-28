@@ -467,6 +467,21 @@ h2 {
   margin-top: 52px;
 }
 
+.library-section {
+  padding-top: 12px;
+  padding-bottom: 20px;
+}
+
+.library-card {
+  min-height: 300px;
+}
+
+.library-card span {
+  font-family: "Courier New", monospace;
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
 .section-heading {
   display: flex;
   align-items: end;
