@@ -47,6 +47,37 @@ const stories = [
     body: [
       "有猫头鹰在，哥哥就不孤单了"
     ]
+  },
+  {
+    id: "buttons",
+    index: "03",
+    title: "关于扣子（中英）",
+    kicker: "Parallel 03",
+    tag: "PHOTO TRIGGER 03",
+    quote: "把我们衣服的纽扣互扣 就不会分离",
+    image: "assets/images/buttons-cover.png",
+    imageAlt: "两个人靠在一起微笑的故事封面",
+    detailImages: [
+      {
+        src: "assets/images/buttons-lane.png",
+        alt: "树荫下安静的小路"
+      },
+      {
+        src: "assets/images/buttons-garden.png",
+        alt: "树影环绕的林间空地"
+      },
+      {
+        src: "assets/images/buttons-road.png",
+        alt: "阳光穿过树叶落在道路上"
+      }
+    ],
+    media: "assets/media/buttons.mp4",
+    mediaType: "video/mp4",
+    track: "关于扣子",
+    short: "",
+    body: [
+      "哥哥扣的顶顶好！"
+    ]
   }
 ];
 
